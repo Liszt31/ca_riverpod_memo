@@ -14,6 +14,8 @@ class MemoDetailViewModel {
   var _isNewMemo = false;
 
   String initialContentValue() => _content;
+  bool shouldShowDeleteMemoIcon() => !_isNewMemo;
+
   setContent(final String value) => _content = value;
 
   MemoDetailViewModel(final Reader read, final Memo? memo) {
@@ -37,5 +39,9 @@ class MemoDetailViewModel {
       final newMemo = Memo(id: _id, content: _content);
       _memoListViewModel.updateMemo(newMemo);
     }
+  }
+
+  deleteMemo() {
+    if (!_isNewMemo) _memoListViewModel.deleteMemo(_id);
   }
 }

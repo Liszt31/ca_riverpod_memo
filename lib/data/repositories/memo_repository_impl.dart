@@ -24,4 +24,9 @@ class MemoRepositoryImpl implements MemoRepository {
   Future<Either<Exception, void>> updateMemo(Memo memo) {
     return database.updateMemo(memo);
   }
+
+  @override
+  Future<Either<Exception, void>> deleteMemo(int id) {
+    return database.deleteMemo(id);
+  }
 }

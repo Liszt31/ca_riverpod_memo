@@ -1,4 +1,3 @@
-import 'package:ca_riverpod_memo/domain/models/memo.dart';
 import 'package:ca_riverpod_memo/presentation/viewmodels/memo_list/memo_list_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -11,9 +10,7 @@ class MemoListPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final viewModel = ref.watch(_memoListProvider.notifier);
     final memoList = ref.watch(_memoListProvider);
-    print(memoList.length);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Memo'),

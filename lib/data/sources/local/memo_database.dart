@@ -82,4 +82,20 @@ class MemoDatabase {
       return Left(e);
     }
   }
+
+  Future<Either<Exception, void>> deleteMemo(final int id) async {
+    final db = await database;
+
+    try {
+      await db.delete(
+        _tableName,
+        where: '$_columnId = ?',
+        whereArgs: [id],
+      );
+
+      return const Right(null);
+    } on Exception catch (e) {
+      return Left(e);
+    }
+  }
 }
